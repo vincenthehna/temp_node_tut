@@ -1,0 +1,4 @@
+const sayHi = require('./sayHi');
+const names = require('./names');
+require("./7-mind-grenade")
+//sayHi(names.molly);

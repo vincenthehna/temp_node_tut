@@ -1,0 +1,25 @@
+//EXAMPLE FOR CALLBACK HELL
+const { readFile, writeFile } = require('fs');
+
+readFile('./content/first.txt', 'utf-8', function (err, result) {
+    if (err) {
+        console.log(err)
+        return;
+    }
+    console.log(result);
+    const first = result;
+    readFile('./content/second.txt', 'utf-8', function (err, result) {
+        if (err) {
+            console.log(err)
+            return;
+        }
+        console.log(result);
+        const second = result;
+        writeFile('./content/result-sync.txt', first + second, (err) => {
+            if (err) {
+                console.log(err)
+                return;
+            }
+        });
+    })
+})
